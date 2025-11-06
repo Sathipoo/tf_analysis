@@ -22,3 +22,7 @@ FROM (
 
 'SELECT A.* FROM (' || LEFT(dynamic_sql, LENGTH(dynamic_sql) - 9) || ') A ' ||
 'WHERE A.time_stamp >= DATEADD(mi, DATEDIFF(mi, GETDATE(), GETUTCDATE()), ''' || TO_CHAR($LastRunTime, 'YYYY-MM-DD HH24:MI:SS') || ''')'
+
+
+'SELECT A.* FROM (' || Paramm || ') A WHERE A.time_stamp >= DATEADD(mi, DATEDIFF(mi, GETDATE(), GETUTCDATE()), ''' 
+|| TO_CHAR($LastRunTime, 'YYYY-MM-DD HH24:MI:SS') || ''')'
